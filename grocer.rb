@@ -62,5 +62,5 @@ def checkout(cart, coupons)
   cart = apply_coupons(cart, coupons)
   cart = apply_clearance(cart)
   total_price = cart_total(cart)
-  return total_price > 100 ? total_price * 0.9 : total_price
+  return total_price > 100 ? (total_price * 0.9).round(2) : total_price
 end
