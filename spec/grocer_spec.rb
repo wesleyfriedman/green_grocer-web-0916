@@ -102,7 +102,7 @@ describe "Grocer" do
         cart = Array.new(2, cheese)
         consolidated_cart = consolidate_cart(cart)
 
-        irrelevant = apply_coupons(consolidated_cart, [find_coupon("AVOCADO")])
+        irrelevant = apply_coupons(consolidated_cart, [find_coupon("AVOCADO")]) ## if coupons[:item] exists in consolidated_cart, apply coupon, else move on to next case
         expect(irrelevant["CHEESE"][:price]).to eq(6.50)
         expect(irrelevant["CHEESE"][:count]).to eq(2)
         expect(irrelevant.keys).to_not include("AVOCADO W/COUPON")
